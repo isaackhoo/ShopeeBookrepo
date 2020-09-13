@@ -24,7 +24,7 @@ Function 3: Create a modal that displays all details of the book without using A
 
 ### `npm i`
 
-Navigate to project direction and use 'npm i' to install all required project dependencies.
+Navigate to project directory and use 'npm i' to install all required project dependencies.
 
 ## Available Scripts
 
