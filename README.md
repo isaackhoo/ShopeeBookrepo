@@ -5,6 +5,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 NodeJs:     v12.18.3<br />
 Npm:        v6.14.6
 
+V1.0.0<br/>
+<br/>
+Added all basic project requirements.<br/>
+Function 1: Display title, ISBN and genre in a table.<br/>
+Function 2a: Add and delete books.<br/>
+Fucntion 2b: Create a modal that displays the selected book's title.<br/>
+Function 3: Create a modal that displays all details of the book without using AntDesign Modal.<br/>
+
 ## Getting Started
 
 ### Built App

@@ -1,9 +1,10 @@
 import React from 'react';
+import './TableView.less';
 import { Table, Empty, ConfigProvider } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { ControlButton } from '../../Components/ControlButton';
 import EmptySVG from '../../Assets/Images/empty.svg';
-import { updateSelectedTableKeys } from './Redux/Action';
+import { setSelectedRow, updateSelectedTableKeys } from './Redux/Action';
 
 export let TableView = (props) => {
 
@@ -16,7 +17,7 @@ export let TableView = (props) => {
         {
             title: 'Title',
             dataIndex: 'title',
-            width: '70%'
+            width: '70%',
         },
         {
             title: 'ISBN',
@@ -78,7 +79,9 @@ export let TableView = (props) => {
                 }}
                 onRow={(record, idx) => {
                     return {
-                        onClick: () => { console.log(`idx:${idx}: ${JSON.stringify(record, null, 4)}`); }
+                        onClick: () => {
+                            dispatch(setSelectedRow(record));
+                        }
                     }
                 }}
             />

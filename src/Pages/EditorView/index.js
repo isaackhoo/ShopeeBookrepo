@@ -32,15 +32,11 @@ export let EditorView = (props) => {
     const dispatch = useDispatch();
     const booksReducer = useSelector(store => store.books);
 
-    const layout = {
-        labelCol: { span: 3 },
-        wrapperCol: { span: 21 }
-    }
+    const layout = 'vertical';
 
     const layoutWithoutLabel = {
         wrapperCol: {
-            offset: 3,
-            span: 21,
+            span: 24,
         }
     }
 
@@ -79,7 +75,7 @@ export let EditorView = (props) => {
             <Form
                 form={form}
                 className='FormContainer'
-                {...layout}
+                layout='vertical'
                 name="book-editor"
                 validateMessages={validateMessages}
                 initialValues={{

@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import './App.less';
-import { Space } from 'antd';
+import { Space, Typography } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../Header'
 import { ControlButton } from '../Components/ControlButton';
@@ -8,16 +8,21 @@ import { DeleteButton } from '../Components/DeleteButton';
 import { bookAdd } from '../Books/Redux/Action';
 import { EditorView } from '../Pages/EditorView';
 import { TableView } from '../Pages/TableView';
+import { CustomModal } from '../Components/CustomModal';
 
 import { appToggleEditingView } from './Redux/Actions';
 
 import BooksInitialData from '../Assets/books.json';
+import { clearSelectedRow } from '../Pages/TableView/Redux/Action';
+
+const { Title, Text } = Typography;
 
 export let App = () => {
 
     const dispatch = useDispatch();
 
     const appReducer = useSelector(store => store.app);
+    const tableReducer = useSelector(store => store.table);
 
     console.log(`Rendering App`);
 
@@ -37,9 +42,7 @@ export let App = () => {
 
     return (
         <div className='App'>
-            <Space direction='vertical' size='middle'>
-                <Header />
-            </Space>
+            <Header />
             <div className='PageView'>
                 <div className='InnerPageView'>
                     <Space direction='vertical' size='middle'>
@@ -55,6 +58,41 @@ export let App = () => {
                     </Space>
                 </div>
             </div>
+            <CustomModal
+                isVisible={tableReducer.selectedRow !== undefined}
+                onClose={() => { dispatch(clearSelectedRow()); }}
+                title={tableReducer.selectedRow?.title}
+            >
+                <div className='ModalBody'>
+                    <Space
+                        className='Space'
+                        direction='vertical'
+                        size='middle'
+                    >
+                        {/* Book information */}
+                        <div>
+                            <div className='ModalSubheader'>
+                                <Text style={{ flex: 1 }}>{`ISBN:`}</Text>
+                                <Text style={{ flex: 6 }}>{`${tableReducer.selectedRow?.isbn}`}</Text>
+                            </div>
+                            <div className='ModalSubheader'>
+                                <Text style={{ flex: 1 }}>{`Genre:`}</Text>
+                                <Text style={{ flex: 6 }}>{`${tableReducer.selectedRow?.genre}`}</Text>
+                            </div>
+                        </div>
+
+                        {/* book summary */}
+                        <div className='ModalSummaryContainer'>
+                            <Title level={5}>{`Summary`}</Title>
+                            <div className='ModalSummaryBody'>
+                                <Text>
+                                    {`${tableReducer.selectedRow?.summary}`}
+                                </Text>
+                            </div>
+                        </div>
+                    </Space>
+                </div>
+            </CustomModal>
         </div>
     )
 }
