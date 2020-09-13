@@ -26,11 +26,6 @@ Function 3: Create a modal that displays all details of the book without using A
 
 Open [https://isaackhoo.github.io/shopeebookrepo/](https://isaackhoo.github.io/shopeebookrepo/) to view a live version of the app.
 
-### View local built version
-
-In the zip folder, navigate to 'build'.
-Run 'index.html' to view local version of the app.
-
 ### View via CRA development server 
 ### `npm i`
 
