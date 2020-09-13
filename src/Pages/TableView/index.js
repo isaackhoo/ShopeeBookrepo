@@ -1,10 +1,11 @@
 import React from 'react';
 import './TableView.less';
-import { Table, Empty, ConfigProvider } from 'antd';
+import { Table, Empty, ConfigProvider, Button, Tooltip } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { ControlButton } from '../../Components/ControlButton';
 import EmptySVG from '../../Assets/Images/empty.svg';
 import { setSelectedRow, updateSelectedTableKeys } from './Redux/Action';
+import { EditOutlined } from '@ant-design/icons';
 
 export let TableView = (props) => {
 
@@ -12,22 +13,44 @@ export let TableView = (props) => {
 
     const dispatch = useDispatch();
     const bookReducer = useSelector(store => store.books);
+    const tableReducer = useSelector(store => store.table);
 
     const columns = [
         {
-            title: 'Title',
+            title: tableReducer.selectedKeys.length > 0
+                ? `Title (${tableReducer.selectedKeys.length} books selected)`
+                : 'Title',
             dataIndex: 'title',
-            width: '70%',
+            width: '60%',
         },
         {
             title: 'ISBN',
             dataIndex: 'isbn',
-            width: '15%'
+            width: '20%'
         },
         {
             title: 'Genre',
             dataIndex: 'genre',
+            width: '10%'
         },
+        {
+            render: (text) => (
+                <Tooltip
+                    arrowPointAtCenter
+                    title={`Edit Record ${text.isbn}`}
+                >
+                    <Button
+                        type='text'
+                        icon={<EditOutlined />}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            props.onEdit && props.onEdit(text);
+                        }}
+                    />
+                </Tooltip>
+
+            )
+        }
     ];
 
     const onSelectedRowsChange = (selectedRows) => {

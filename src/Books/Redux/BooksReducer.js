@@ -19,7 +19,7 @@ export const BookReducer = (state = BookReducerInitialState, action) => {
                 return state;
             return {
                 ...state,
-                books: [...state.books, action.payload.toObject()]
+                books: [action.payload.toObject(), ...state.books]
             };
         }
         case BOOK_UPDATE: {

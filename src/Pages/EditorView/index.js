@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './EditorView.less';
 import { Form, Input, Button } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Book } from '../../Books/Book';
 import { useDispatch, useSelector } from 'react-redux';
-import { bookAdd } from '../../Books/Redux/Action';
+import { bookAdd, bookUpdate } from '../../Books/Redux/Action';
 import { appToggleEditingView } from '../../App/Redux/Actions';
 import { LoremIpsum } from 'lorem-ipsum';
+import { clearUpdatingRecordDetails } from './Redux/Action';
 
 const { TextArea } = Input;
 
@@ -31,6 +32,7 @@ export let EditorView = (props) => {
     const [form] = Form.useForm();
     const dispatch = useDispatch();
     const booksReducer = useSelector(store => store.books);
+    const editorReducer = useSelector(store => store.editor);
 
     const layout = 'vertical';
 
@@ -51,6 +53,24 @@ export let EditorView = (props) => {
         required: '${label} is required!',
     };
 
+    // useEffect
+    useEffect(() => {
+        if (editorReducer.recordToUpdate !== undefined) {
+            const {
+                title,
+                isbn,
+                genre,
+                summary
+            } = editorReducer.recordToUpdate;
+            form.setFieldsValue({
+                Title: title,
+                ISBN: isbn,
+                GenreList: genre.split(',').map(g => g.trim()),
+                Summary: summary
+            });
+        }
+    }, [editorReducer.recordToUpdate === undefined])
+
     const onQuickFill = () => {
         form.setFieldsValue({
             Title: lorem.generateSentences(1),
@@ -61,12 +81,23 @@ export let EditorView = (props) => {
     }
 
     const onFinish = (values) => {
-        dispatch(bookAdd({
-            title: values.Title,
-            isbn: values.ISBN,
-            genre: values.GenreList,
-            summary: values.Summary
-        }));
+        if (editorReducer.recordToUpdate === undefined) {
+            dispatch(bookAdd({
+                title: values.Title,
+                isbn: values.ISBN,
+                genre: values.GenreList,
+                summary: values.Summary
+            }));
+        }
+        else {
+            dispatch(bookUpdate({
+                title: values.Title,
+                isbn: values.ISBN,
+                genre: values.GenreList,
+                summary: values.Summary
+            }));
+            dispatch(clearUpdatingRecordDetails());
+        }
         dispatch(appToggleEditingView());
     }
 
@@ -93,7 +124,15 @@ export let EditorView = (props) => {
                     rules={[
                         {
                             required: true
-                        }
+                        },
+                        () => ({
+                            validator(_, value) {
+                                // test for at least one character or digit
+                                if (/^(?=.*[\w\d]).+/.test(value))
+                                    return Promise.resolve();
+                                return Promise.reject(`Title should be alphanumeric`);
+                            }
+                        })
                     ]}
                 >
                     <Input
@@ -114,7 +153,8 @@ export let EditorView = (props) => {
                                 // check if input is a valid isbn
                                 if (Book.isValidIsbn(value)) {
                                     // check that isbn doesnt already exist in list
-                                    if (Array.isArray(booksReducer.books)
+                                    if (editorReducer.recordToUpdate === undefined
+                                        && Array.isArray(booksReducer.books)
                                         && booksReducer.books.some(b => b.isbn === value))
                                         return Promise.reject(`ISBN already exists in repository`);
 
@@ -157,6 +197,14 @@ export let EditorView = (props) => {
                                                         ? "Genre is required"
                                                         : "Please input genre or delete this field.",
                                                 },
+                                                () => ({
+                                                    validator(_, value) {
+                                                        // test that genre should not contain spaces
+                                                        if (/^[^\s]*$/.test(value))
+                                                            return Promise.resolve();
+                                                        return Promise.reject(`Genre should not contain spaces`);
+                                                    }
+                                                })
                                             ]}
                                             noStyle
                                         >
@@ -200,21 +248,35 @@ export let EditorView = (props) => {
                 <Form.Item
                     {...layoutButtons}
                 >
-                    <div className='ButtonGroup'>
-                        <Button
-                            type='link'
-                            htmlType="button"
-                            onClick={() => { onQuickFill() }}
-                        >
-                            Quick Fill
-                        </Button>
-                        <Button
-                            type='primary'
-                            htmlType='submit'
-                        >
-                            Add Book
-                        </Button>
-                    </div>
+                    {
+                        editorReducer.recordToUpdate === undefined
+                            ?
+                            <div className='ButtonGroup'>
+                                <Button
+                                    type='link'
+                                    htmlType="button"
+                                    onClick={() => { onQuickFill() }}
+                                >
+                                    Quick Fill
+                                </Button>
+                                <Button
+                                    type='primary'
+                                    htmlType='submit'
+                                >
+                                    Add Book
+                                </Button>
+                            </div>
+                            :
+                            <div className='ButtonGroup'>
+                                <Button
+                                    type='primary'
+                                    htmlType='submit'
+                                >
+                                    Update
+                                </Button>
+                            </div>
+                    }
+
                 </Form.Item>
             </Form>
         </div >

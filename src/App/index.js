@@ -14,6 +14,7 @@ import { appToggleEditingView } from './Redux/Actions';
 
 import BooksInitialData from '../Assets/books.json';
 import { clearSelectedRow } from '../Pages/TableView/Redux/Action';
+import { setUpdatingRecordDetails } from '../Pages/EditorView/Redux/Action';
 
 const { Title, Text } = Typography;
 
@@ -54,7 +55,15 @@ export let App = () => {
                             {!appReducer.isEditingView && <DeleteButton />}
                         </div>
                         {appReducer.isEditingView && <EditorView />}
-                        {!appReducer.isEditingView && <TableView onEmpty={() => memoToggleEditingView()} />}
+                        {!appReducer.isEditingView
+                            && <TableView
+                                onEmpty={() => memoToggleEditingView()}
+                                onEdit={(record) => {
+                                    dispatch(setUpdatingRecordDetails(record));
+                                    memoToggleEditingView();
+                                }}
+                            />
+                        }
                     </Space>
                 </div>
             </div>
