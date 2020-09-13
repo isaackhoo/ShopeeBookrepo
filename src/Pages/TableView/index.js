@@ -31,7 +31,8 @@ export let TableView = (props) => {
         {
             title: 'Genre',
             dataIndex: 'genre',
-            width: '10%'
+            width: '10%',
+            responsive: ['lg']
         },
         {
             render: (text) => (
