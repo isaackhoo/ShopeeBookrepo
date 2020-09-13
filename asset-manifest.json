@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/github.io/static/css/main.547cab39.chunk.css",
-    "main.js": "/github.io/static/js/main.2a2a7a8a.chunk.js",
-    "main.js.map": "/github.io/static/js/main.2a2a7a8a.chunk.js.map",
-    "runtime-main.js": "/github.io/static/js/runtime-main.9cfe1341.js",
-    "runtime-main.js.map": "/github.io/static/js/runtime-main.9cfe1341.js.map",
-    "static/js/2.5b4e46cc.chunk.js": "/github.io/static/js/2.5b4e46cc.chunk.js",
-    "static/js/2.5b4e46cc.chunk.js.map": "/github.io/static/js/2.5b4e46cc.chunk.js.map",
-    "index.html": "/github.io/index.html",
-    "precache-manifest.b0222668cd1dfadef0c845d8aa28640d.js": "/github.io/precache-manifest.b0222668cd1dfadef0c845d8aa28640d.js",
-    "service-worker.js": "/github.io/service-worker.js",
-    "static/css/main.547cab39.chunk.css.map": "/github.io/static/css/main.547cab39.chunk.css.map",
-    "static/js/2.5b4e46cc.chunk.js.LICENSE.txt": "/github.io/static/js/2.5b4e46cc.chunk.js.LICENSE.txt",
-    "static/media/empty.svg": "/github.io/static/media/empty.7ac16750.svg"
+    "main.css": "/ShopeeBookrepo/static/css/main.60db934e.chunk.css",
+    "main.js": "/ShopeeBookrepo/static/js/main.de4674c7.chunk.js",
+    "main.js.map": "/ShopeeBookrepo/static/js/main.de4674c7.chunk.js.map",
+    "runtime-main.js": "/ShopeeBookrepo/static/js/runtime-main.974315d3.js",
+    "runtime-main.js.map": "/ShopeeBookrepo/static/js/runtime-main.974315d3.js.map",
+    "static/js/2.a06b28ae.chunk.js": "/ShopeeBookrepo/static/js/2.a06b28ae.chunk.js",
+    "static/js/2.a06b28ae.chunk.js.map": "/ShopeeBookrepo/static/js/2.a06b28ae.chunk.js.map",
+    "index.html": "/ShopeeBookrepo/index.html",
+    "precache-manifest.ac11a25b6a78cb7a548144a2533716c7.js": "/ShopeeBookrepo/precache-manifest.ac11a25b6a78cb7a548144a2533716c7.js",
+    "service-worker.js": "/ShopeeBookrepo/service-worker.js",
+    "static/css/main.60db934e.chunk.css.map": "/ShopeeBookrepo/static/css/main.60db934e.chunk.css.map",
+    "static/js/2.a06b28ae.chunk.js.LICENSE.txt": "/ShopeeBookrepo/static/js/2.a06b28ae.chunk.js.LICENSE.txt",
+    "static/media/empty.svg": "/ShopeeBookrepo/static/media/empty.7ac16750.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9cfe1341.js",
-    "static/js/2.5b4e46cc.chunk.js",
-    "static/css/main.547cab39.chunk.css",
-    "static/js/main.2a2a7a8a.chunk.js"
+    "static/js/runtime-main.974315d3.js",
+    "static/js/2.a06b28ae.chunk.js",
+    "static/css/main.60db934e.chunk.css",
+    "static/js/main.de4674c7.chunk.js"
   ]
 }
