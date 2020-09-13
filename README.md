@@ -22,11 +22,21 @@ Function 3: Create a modal that displays all details of the book without using A
 
 ## Getting Started
 
-### `npm i`
+### View on the web (requires internet connection)
+
+Open [https://isaackhoo.github.io/shopeebookrepo/](https://isaackhoo.github.io/shopeebookrepo/) to view a live version of the app.
+
+### View local built version
+
+In the zip folder, navigate to 'build'.
+Run 'index.html' to view local version of the app.
+
+### View via CRA development server 
+#### `npm i`
 
 Navigate to project directory and use 'npm i' to install all required project dependencies.
 
-## Available Scripts
+## Available Scripts for development server
 
 <b>Ensure that dependencies have been installed using 'npm i' first.</b> <br />
 In the project directory, you can run from command line:
@@ -46,8 +56,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
-
-### `serve -s build`
-
-Serves your build app over your current network.
-View the app via url provided.

@@ -2,7 +2,7 @@
   "name": "bookrepo",
   "version": "1.2.0",
   "private": true,
-  "homepage": "https://isaackhoo.github.io/ShopeeBookrepo/",
+  "homepage": ".",
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "@craco/craco": "^5.6.4",
@@ -24,7 +24,6 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
