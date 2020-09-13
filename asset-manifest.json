@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/ShopeeBookrepo/static/css/main.60db934e.chunk.css",
-    "main.js": "/ShopeeBookrepo/static/js/main.de4674c7.chunk.js",
-    "main.js.map": "/ShopeeBookrepo/static/js/main.de4674c7.chunk.js.map",
-    "runtime-main.js": "/ShopeeBookrepo/static/js/runtime-main.974315d3.js",
-    "runtime-main.js.map": "/ShopeeBookrepo/static/js/runtime-main.974315d3.js.map",
-    "static/js/2.a06b28ae.chunk.js": "/ShopeeBookrepo/static/js/2.a06b28ae.chunk.js",
-    "static/js/2.a06b28ae.chunk.js.map": "/ShopeeBookrepo/static/js/2.a06b28ae.chunk.js.map",
-    "index.html": "/ShopeeBookrepo/index.html",
-    "precache-manifest.ac11a25b6a78cb7a548144a2533716c7.js": "/ShopeeBookrepo/precache-manifest.ac11a25b6a78cb7a548144a2533716c7.js",
-    "service-worker.js": "/ShopeeBookrepo/service-worker.js",
-    "static/css/main.60db934e.chunk.css.map": "/ShopeeBookrepo/static/css/main.60db934e.chunk.css.map",
-    "static/js/2.a06b28ae.chunk.js.LICENSE.txt": "/ShopeeBookrepo/static/js/2.a06b28ae.chunk.js.LICENSE.txt",
-    "static/media/empty.svg": "/ShopeeBookrepo/static/media/empty.7ac16750.svg"
+    "main.css": "/shopeebookrepo/static/css/main.547cab39.chunk.css",
+    "main.js": "/shopeebookrepo/static/js/main.06b5af9e.chunk.js",
+    "main.js.map": "/shopeebookrepo/static/js/main.06b5af9e.chunk.js.map",
+    "runtime-main.js": "/shopeebookrepo/static/js/runtime-main.6e38ec36.js",
+    "runtime-main.js.map": "/shopeebookrepo/static/js/runtime-main.6e38ec36.js.map",
+    "static/js/2.37c1842b.chunk.js": "/shopeebookrepo/static/js/2.37c1842b.chunk.js",
+    "static/js/2.37c1842b.chunk.js.map": "/shopeebookrepo/static/js/2.37c1842b.chunk.js.map",
+    "index.html": "/shopeebookrepo/index.html",
+    "precache-manifest.460d4e60195ff52167fbc74befbdb76f.js": "/shopeebookrepo/precache-manifest.460d4e60195ff52167fbc74befbdb76f.js",
+    "service-worker.js": "/shopeebookrepo/service-worker.js",
+    "static/css/main.547cab39.chunk.css.map": "/shopeebookrepo/static/css/main.547cab39.chunk.css.map",
+    "static/js/2.37c1842b.chunk.js.LICENSE.txt": "/shopeebookrepo/static/js/2.37c1842b.chunk.js.LICENSE.txt",
+    "static/media/empty.svg": "/shopeebookrepo/static/media/empty.7ac16750.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.974315d3.js",
-    "static/js/2.a06b28ae.chunk.js",
-    "static/css/main.60db934e.chunk.css",
-    "static/js/main.de4674c7.chunk.js"
+    "static/js/runtime-main.6e38ec36.js",
+    "static/js/2.37c1842b.chunk.js",
+    "static/css/main.547cab39.chunk.css",
+    "static/js/main.06b5af9e.chunk.js"
   ]
 }
